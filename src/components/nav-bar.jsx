@@ -22,16 +22,19 @@ export const NavBar = () => {
             onClick={() => setToggle(!toggle)}
             className={`hidden  max-md:flex h-10 w-10 items-center justify-between m-3`}
           >
-            <img src={toggle ? x : menu} alt="" />
+            <img src={toggle ? x : menu} alt="not found" />
           </div>
         </div>
-
-        <nav className={`w-3/12 max-md:${toggle ? "block": "hidden"}   `}>
-          <ul className="flex items-center justify-evenly text-base text-gray-700 max-md:flex-col">
+        <nav
+          className={`w-3/12 max-md:${
+            toggle ? "block" : "hidden"
+          } max-md:w-full`}
+        >
+          <ul className=" py-4 flex items-center justify-evenly max-md:h-32 text-base text-gray-700 max-md:flex-col max-md:items-center">
             <li>
               <Link
                 to={"/"}
-                className="p-2 py-3 px-0 border-b-2 border-transparent hover:border-sky-400 transition-all duration-500"
+                className="py-3 px-2 border-b-2 border-transparent hover:border-sky-400 transition-all duration-500"
               >
                 Home
               </Link>
@@ -39,7 +42,7 @@ export const NavBar = () => {
             <li>
               <Link
                 to={"/search"}
-                className="p-4 py-3 px-0 block border-b-2 border-transparent hover:border-sky-400 transition-all duration-500"
+                className="py-3 px-2  border-b-2 border-transparent hover:border-sky-400 transition-all duration-500"
               >
                 search
               </Link>
@@ -48,7 +51,7 @@ export const NavBar = () => {
             <li>
               <Link
                 to={"/about"}
-                className="p-4 py-3 px-0 block border-b-2 border-transparent hover:border-sky-400 transition-all duration-500"
+                className="py-3 px-2 border-b-2 border-transparent hover:border-sky-400 transition-all duration-500"
               >
                 about
               </Link>

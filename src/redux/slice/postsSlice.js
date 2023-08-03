@@ -43,5 +43,4 @@ const postsSlice = createSlice({
 
 // Generate Reducer
 const postsReducer = postsSlice.reducer;
-
 export default postsReducer;
