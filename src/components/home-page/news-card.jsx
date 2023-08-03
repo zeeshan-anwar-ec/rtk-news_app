@@ -1,18 +1,19 @@
+import dummy from "../../assets/dummy.png"
 export const NewsCard = ({cardValue}) => {
+
   return (
     <div className="flex flex-col w-96 max-md:w-full">
       <div>
-        <img className="rounded-lg my-4"
-          src="https://i.ytimg.com/vi/eY1cnb4t3JM/maxresdefault_live.jpg"
-          alt=""
+        <img className="w-full rounded-lg my-4"
+          src={cardValue.urlToImage? cardValue.urlToImage: dummy}
+          alt="not found"
         />
       </div>
       <div>
-        <label className="my-4" htmlFor="Date">March 01,2021 card No: {cardValue}</label>
-        <h1 className="text-2xl my-4">Taiwan Amps Up Chinese-Invasion</h1>
+        <label className="my-4" htmlFor="Date">{cardValue.publishedAt.slice(0,10)}</label>
+        <h1 className="text-2xl my-4">{cardValue.title}</h1>
         <p className="my-4">
-          Military and civilian exercises are larger, louder, better coordinated
-          as government seeks to battle public complacency
+          {cardValue.description}
         </p>
       </div>
     </div>

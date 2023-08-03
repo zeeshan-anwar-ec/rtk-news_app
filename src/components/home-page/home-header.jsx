@@ -1,19 +1,22 @@
-export const HomeHeader = () => {
+import dummy from "../../assets/dummy.png"
+
+export const HomeHeader = ({firstNews}) => {
+
+
   return (
     <div className="w-full flex mb-8">
       <div className="w-1/2">
         <img
           className="rounded-lg object-cover"
-          src="https://i.ytimg.com/vi/eY1cnb4t3JM/maxresdefault_live.jpg"
+          src={firstNews.urlToImage? firstNews.urlToImage: dummy}
           alt=""
         />
       </div>
       <div className="w-1/2 pl-8 flex flex-col flex-wrap justify-between">
-      <label className="my-2" htmlFor="Date">March 01,2021</label>
-        <h1 className="text-6xl my-4">Taiwan Amps Up Chinese-Invasion</h1>
+      <label className="my-2" htmlFor="Date">{firstNews.publishedAt.slice(0,10)}</label>
+        <h1 className="text-6xl my-4">{firstNews.title}</h1>
         <p className="my-2">
-          Military and civilian exercises are larger, louder, better coordinated
-          as government seeks to battle public complacency
+        {firstNews.description}
         </p>
       </div>
     </div>
