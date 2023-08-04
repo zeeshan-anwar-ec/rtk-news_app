@@ -1,10 +1,12 @@
 import dummy from "../../assets/dummy.png"
 export const NewsCard = ({cardValue}) => {
 
+  
+
   return (
     <div className="flex flex-col w-96 max-lg:w-80 max-md:w-full">
       <div>
-        <img className="w-full rounded-lg my-4"
+        <img className="w-full  rounded-lg my-4"
           src={cardValue.urlToImage? cardValue.urlToImage: dummy}
           alt="not found"
         />

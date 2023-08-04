@@ -3,6 +3,7 @@ import logo from "../assets/logo.svg";
 import x from "../assets/x.png";
 import menu from "../assets/menu.png";
 import { useState } from "react";
+import { SearchBar } from "./search-page/search-bar";
 
 export const NavBar = () => {
   const [toggle, setToggle] = useState(false);
@@ -18,6 +19,7 @@ export const NavBar = () => {
               alt="not found"
             />
           </Link>
+          <SearchBar />
           <div
             onClick={() => setToggle(!toggle)}
             className={`hidden  max-md:flex h-10 w-10 items-center justify-between m-3`}
@@ -26,15 +28,15 @@ export const NavBar = () => {
           </div>
         </div>
         <nav
-          className={`w-3/12 max-md:${
+          className={`w-3/12 ${
             toggle ? "block" : "hidden"
           } max-md:w-full`}
         >
-          <ul className=" py-4 flex items-center justify-evenly max-md:h-32 text-base text-gray-700 max-md:flex-col max-md:items-center">
-            <li>
+          <ul className=" py-4 flex items-center justify-end  max-md:h-32 text-base text-gray-700 max-md:flex-col max-md:items-center">
+            <li className="max-md:mb-5">
               <Link
                 to={"/"}
-                className="py-3 px-2 border-b-2 border-transparent hover:border-sky-400 transition-all duration-500"
+                className="py-3 px-2 border-b-2 max-md:py-2 border-transparent hover:border-sky-400 transition-all duration-500"
               >
                 Home
               </Link>
@@ -42,18 +44,9 @@ export const NavBar = () => {
             <li>
               <Link
                 to={"/search"}
-                className="py-3 px-2  border-b-2 border-transparent hover:border-sky-400 transition-all duration-500"
+                className="py-3 px-2 mr-8 max-md:mr-0 border-b-2 border-transparent hover:border-sky-400 transition-all duration-500"
               >
                 search
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to={"/about"}
-                className="py-3 px-2 border-b-2 border-transparent hover:border-sky-400 transition-all duration-500"
-              >
-                about
               </Link>
             </li>
           </ul>
