@@ -18,6 +18,7 @@ export const Search = () => {
 
   const currentPosts = newsList.slice(firstPostIndex, lastPostIndex);
 
+  
 
 
   return (
