@@ -30,16 +30,16 @@ export const SearchBar = () => {
   return (
     <form
       onSubmit={searchArticleNews}
-      className={`bg-white max-sm:w-4/12 border-2 rounded-lg roun  flex justify-between`}
+      className={`w-full   py-2 mb-8 bg-white border-2  flex justify-between`}
     >
       <input
-        className="pl-8 max-sm:w-16 outline-none max-sm:placeholder:text-xs"
+        className="pl-8 flex-1 max-sm:w-16 outline-none max-sm:placeholder:text-xs"
         onChange={(e) => setInput(e.target.value)}
         type="text"
         placeholder="Enter the Article"
         required
       />
-      <button className="border-2 px-4 py-1 rounded-lg max-sm:text-xs max-sm:px-2 max-sm:py-0" type="submit">
+      <button className="border-2 mr-8 px-4 py-1 rounded-lg max-sm:text-xs max-sm:px-2 max-sm:py-0" type="submit">
         Search
       </button>
     </form>

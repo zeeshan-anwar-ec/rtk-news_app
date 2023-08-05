@@ -6,7 +6,7 @@ const API_URL =
 
 // Initial State
 const initialState = {
-  posts: [],
+  news: [],
   searchedNews:[],
   loading: false,
   error: undefined,
@@ -35,13 +35,13 @@ const newsSlice = createSlice({
     // Fullfilled
     builder.addCase(fetchNews.fulfilled, (state, action) => {
       state.loading = false;
-      state.posts = action.payload;
+      state.news = action.payload;
     });
 
     // Rejected
     builder.addCase(fetchNews.rejected, (state, action) => {
       state.loading = false;
-      state.posts = [];
+      state.news = [];
       state.error = action.payload;
     });
 
@@ -67,5 +67,5 @@ const newsSlice = createSlice({
 });
 
 // Generate Reducer
-const postsReducer = newsSlice.reducer;
-export default postsReducer;
+const newsReducer = newsSlice.reducer;
+export default newsReducer;

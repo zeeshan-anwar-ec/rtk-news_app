@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchNews } from "../redux/slice/newsSlice";
-import { HomeHeader } from "../components/home-page/home-header";
-import { NewsCard } from "../components/home-page/news-card";
+import { HomeHeader } from "../components/home-page-components/home-header";
+import { NewsCard } from "../components/news-card";
 import { Pagination } from "../components/pagination";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -13,7 +13,7 @@ export const Home = () => {
   }, []);
 
   const storeData = useSelector((state) => {
-    return state.posts.posts.articles;
+    return state.news.news.articles;
   });
 
   var newsList = storeData ? storeData : [];
@@ -40,6 +40,6 @@ export const Home = () => {
       />
     </div>
   ) : (
-    <h1 className="mt-24 text-4xl">Loading......</h1>
+    <div className="loader-line fixed top-0"></div>
   );
 };
