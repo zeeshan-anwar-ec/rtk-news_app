@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import dummy from "../../assets/dummy.png";
 
-export const HomeHeader = ({ firstNews }) => {
+export const HomeHeader = ({firstNews }) => {
   return (
     <Link to={firstNews.url} target="_blank">
-      <div className="w-full flex mb-8 max-md:flex-col max-md:w-4/5 max-md:m-auto">
+      <div className="w-full flex mb-8 max-md:flex-col max-md:w-full max-md:m-auto ">
         <div className="w-1/2 h-96 max-md:w-full max-md:h-96">
           <img
             className="w-full h-full object-cover rounded-lg"

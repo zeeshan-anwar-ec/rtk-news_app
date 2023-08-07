@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import dummy from "../assets/dummy.png";
-export const NewsCard = ({ cardValue }) => {
-  return (
+import { HomeHeader } from "./home-page-components/home-header";
+export const NewsCard = ({ index, cardValue }) => {
+  console.log("index>>>", index);
+
+  return index === 0 ? (
+    <HomeHeader firstNews={cardValue} />
+  ) : (
     <Link to={cardValue.url} target="_blank">
       <div className="flex my-6 flex-col w-96 max-lg:w-80 max-md:w-full">
         <div className=" h-60 max-md:h-96 max-sm:h-60">

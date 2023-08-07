@@ -27,13 +27,14 @@ export const Home = () => {
 
   return storeData ? (
     <div className="w-4/5 mt-24 py-8 m-auto flex flex-col items-center">
-      <HomeHeader firstNews={currentPosts[0]} />
+      {/* <HomeHeader firstNews={currentPosts[0]} /> */}
       <div className="w-full flex flex-wrap justify-between max-md:w-full max-md:justify-center">
-        {currentPosts.slice(1).map((item, index) => (
-          <NewsCard key={index} cardValue={item} />
+        {currentPosts.map((item, index) => (
+          <NewsCard key={index} index={index} cardValue={item} />
         ))}
       </div>
       <Pagination
+        currentPage={currentPage}
         postPerPage={postPerPage}
         totalPosts={newsList.length}
         setCurrentPage={setCurrentPage}

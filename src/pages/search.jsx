@@ -12,12 +12,12 @@ export const Search = () => {
       loading: state.news.loading,
     };
   });
-  
+
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(10);
   const lastPostIndex = currentPage * postPerPage;
   const firstPostIndex = lastPostIndex - postPerPage;
-  
+
   const newsList = newsData.searchedNews ? newsData.searchedNews.articles : [];
   const currentPosts = newsList.slice(firstPostIndex, lastPostIndex);
   return (
@@ -35,6 +35,7 @@ export const Search = () => {
               ))}
             </div>
             <Pagination
+              currentPage={currentPage}
               postPerPage={postPerPage}
               totalPosts={newsList.length}
               setCurrentPage={setCurrentPage}
