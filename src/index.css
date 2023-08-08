@@ -9,7 +9,7 @@ body {
 }
 
 .home-header-child-2 {
-  @apply w-1/2 max-md:mb-10 max-md:w-full pl-8 max-md:pl-0 flex flex-col justify-between;
+  @apply w-1/2 max-xl:w-full max-xl:pl-0 max-md:mb-10 max-md:w-full pl-8  flex flex-col justify-between;
 }
 
 ::-webkit-scrollbar {

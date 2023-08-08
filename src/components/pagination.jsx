@@ -4,6 +4,7 @@ import {
   SkipNext,
   SkipPrevious,
 } from "@mui/icons-material";
+
 export const Pagination = ({
   currentPage,
   totalPosts,
@@ -20,21 +21,26 @@ export const Pagination = ({
     <div className="flex items-center">
       <SkipPrevious
         className="hover:cursor-pointer"
-        onClick={() =>
-          setCurrentPage(currentPage > 2 ? currentPage - 2 : currentPage)
-        }
+        onClick={() => {
+          setCurrentPage(currentPage > 2 ? currentPage - 2 : currentPage);
+          window.scroll(0, 0);
+        }}
       />
       <NavigateBefore
         className="hover:cursor-pointer"
-        onClick={() =>
-          setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage)
-        }
+        onClick={() => {
+          setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage);
+          window.scroll(0, 0);
+        }}
       />
 
       {pages.length > 5 && (
         <>
           <button
-            onClick={() => setCurrentPage(1)}
+            onClick={() => {
+              setCurrentPage(1);
+              window.scroll(0, 0);
+            }}
             className="border-2 py-2 px-4 mr-2 max-lg:text-xs max-lg:mr-1 max-md:mr-0 max-lg:py-1 max-lg:px-2
           max-md:px-0 max-md:py-0 max-md:border-0"
           >
@@ -69,7 +75,10 @@ export const Pagination = ({
             ...
           </p>
           <button
-            onClick={() => setCurrentPage(pages.length)}
+            onClick={() => {
+              setCurrentPage(pages.length);
+              window.scroll(0, 0);
+            }}
             className="border-2 py-2 px-4 ml-2 max-lg:text-xs max-lg:ml-1 max-lg:py-1 max-lg:px-2 
           max-md:px-0 max-md:py-0 max-md:border-0"
           >
@@ -81,7 +90,10 @@ export const Pagination = ({
       {pages.length < 5 &&
         pages.map((page, index) => (
           <button
-            onClick={() => setCurrentPage(page + 1)}
+            onClick={() => {
+              setCurrentPage(page + 1);
+              window.scroll(0, 0);
+            }}
             className=" py-2 px-4 mx-1 border-2 
           max-lg:text-xs max-lg:py-1 max-lg:px-2
           max-md:border-0 max-md:py-0 max-md:px-0
@@ -94,19 +106,22 @@ export const Pagination = ({
 
       <NavigateNext
         className="hover:cursor-pointer"
-        onClick={() =>
+        onClick={() => {
           setCurrentPage(
             currentPage < pages.length ? currentPage + 1 : currentPage
-          )
-        }
+          );
+          window.scroll(0, 0);
+        }}
       />
+      {/* <SkipNext onClick={}/> */}
       <SkipNext
         className="hover:cursor-pointer"
-        onClick={() =>
+        onClick={() => {
           setCurrentPage(
             currentPage + 1 < pages.length ? currentPage + 2 : currentPage
-          )
-        }
+          );
+          window.scroll(0, 0);
+        }}
       />
     </div>
   );

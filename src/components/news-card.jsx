@@ -1,11 +1,26 @@
 import { Link } from "react-router-dom";
 import dummy from "../assets/dummy.png";
 import { HomeHeader } from "./home-page-components/home-header";
+import { useEffect, useState } from "react";
+import { NewsCardSkeleton } from "./skeleton/news-card-skeleton";
 export const NewsCard = ({ index, cardValue }) => {
-  console.log("index>>>", index);
+  const [imageLoading, setImageLoading] = useState(true);
+
+  useEffect(() => {
+    const imageLoadTimeout = setTimeout(() => {
+      setImageLoading(false);
+    }, 5000);
+
+    return () => {
+      clearTimeout(imageLoadTimeout);
+    };
+  }, []);
+
 
   return index === 0 ? (
-    <HomeHeader firstNews={cardValue} />
+    <HomeHeader imageLoading={imageLoading} firstNews={cardValue} />
+  ) : imageLoading ? (
+    <NewsCardSkeleton />
   ) : (
     <Link to={cardValue.url} target="_blank">
       <div className="flex my-6 flex-col w-96 max-lg:w-80 max-md:w-full">

@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchNews } from "../redux/slice/newsSlice";
-import { HomeHeader } from "../components/home-page-components/home-header";
 import { NewsCard } from "../components/news-card";
 import { Pagination } from "../components/pagination";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,9 +24,9 @@ export const Home = () => {
 
   const currentPosts = newsList.slice(firstPostIndex, lastPostIndex);
 
+
   return storeData ? (
     <div className="w-4/5 mt-24 py-8 m-auto flex flex-col items-center">
-      {/* <HomeHeader firstNews={currentPosts[0]} /> */}
       <div className="w-full flex flex-wrap justify-between max-md:w-full max-md:justify-center">
         {currentPosts.map((item, index) => (
           <NewsCard key={index} index={index} cardValue={item} />
