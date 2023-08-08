@@ -4,6 +4,8 @@ import {
   SkipNext,
   SkipPrevious,
 } from "@mui/icons-material";
+import { PButton } from "./pagination-components/pagination-button";
+import { Dots } from "./pagination-components/dots";
 
 export const Pagination = ({
   currentPage,
@@ -17,11 +19,13 @@ export const Pagination = ({
     pages.push(i);
   }
 
+
   return (
     <div className="flex items-center">
       <SkipPrevious
         className="hover:cursor-pointer"
         onClick={() => {
+          console.log("im clicked")
           setCurrentPage(currentPage > 2 ? currentPage - 2 : currentPage);
           window.scroll(0, 0);
         }}
@@ -36,72 +40,28 @@ export const Pagination = ({
 
       {pages.length > 5 && (
         <>
-          <button
-            onClick={() => {
-              setCurrentPage(1);
-              window.scroll(0, 0);
-            }}
-            className="border-2 py-2 px-4 mr-2 max-lg:text-xs max-lg:mr-1 max-md:mr-0 max-lg:py-1 max-lg:px-2
-          max-md:px-0 max-md:py-0 max-md:border-0"
-          >
-            1
-          </button>
-          <p
-            className=" text-2xl py-2 px-4 ml-2 max-lg:text-xs max-lg:ml-1 max-lg:py-1 max-lg:px-2 
-          max-md:px-0 max-md:py-0"
-          >
-            ...
-          </p>
-        </>
-      )}
-
-      {pages.length > 5 && (
-        <button
-          className=" py-2 px-4 mx-1 border-2 
-          max-lg:text-xs max-lg:py-1 max-lg:px-2
-          max-md:border-0 max-md:py-0 max-md:px-0
-          "
-        >
-          {currentPage}
-        </button>
-      )}
-
-      {pages.length > 5 && (
-        <>
-          <p
-            className=" text-2xl py-2 px-4 ml-2 max-lg:text-xs max-lg:ml-1 max-lg:py-1 max-lg:px-2 
-          max-md:px-0 max-md:py-0"
-          >
-            ...
-          </p>
-          <button
-            onClick={() => {
-              setCurrentPage(pages.length);
-              window.scroll(0, 0);
-            }}
-            className="border-2 py-2 px-4 ml-2 max-lg:text-xs max-lg:ml-1 max-lg:py-1 max-lg:px-2 
-          max-md:px-0 max-md:py-0 max-md:border-0"
-          >
-            {pages.length}
-          </button>
+        
+          <PButton
+            setCurrentPage={setCurrentPage}
+            val={1}
+          />
+          <Dots />
+          <PButton buttonColor={"text-sky-400"} val={currentPage} setCurrentPage={setCurrentPage} />
+          <Dots />
+          <PButton
+            setCurrentPage={setCurrentPage}
+            val={pages.length}
+          />
         </>
       )}
 
       {pages.length < 5 &&
         pages.map((page, index) => (
-          <button
-            onClick={() => {
-              setCurrentPage(page + 1);
-              window.scroll(0, 0);
-            }}
-            className=" py-2 px-4 mx-1 border-2 
-          max-lg:text-xs max-lg:py-1 max-lg:px-2
-          max-md:border-0 max-md:py-0 max-md:px-0
-          "
+          <PButton
+            setCurrentPage={setCurrentPage}
+            val={page + 1}
             key={index}
-          >
-            {page + 1}
-          </button>
+          />
         ))}
 
       <NavigateNext
@@ -113,7 +73,6 @@ export const Pagination = ({
           window.scroll(0, 0);
         }}
       />
-      {/* <SkipNext onClick={}/> */}
       <SkipNext
         className="hover:cursor-pointer"
         onClick={() => {
