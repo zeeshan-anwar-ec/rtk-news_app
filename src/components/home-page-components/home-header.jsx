@@ -19,8 +19,8 @@ export const HomeHeader = ({ firstNews, imageLoading }) => {
           />
         </div>
 
-        <div className="w-1/2 max-xl:w-full max-xl:pl-0 max-md:mb-10 max-md:w-full pl-8  flex flex-col justify-between  border-2 rounded-r-lg max-xl:rounded-r-none max-xl:rounded-b-lg max-xl:rounded-br-lg">
-          <label className="text-gray-500 w-fit max-xl:ml-4 text-2xl font-black max-lg:font-normal max-lg:text-lg max-lg:my-2" htmlFor="Date">
+        <div className="w-1/2 max-xl:w-full max-xl:pl-0 max-md:mb-10 max-md:w-full pl-8  flex flex-col justify-between border-2 rounded-r-lg max-xl:rounded-r-none max-xl:rounded-b-lg max-xl:rounded-br-lg">
+          <label className="text-gray-700 w-fit max-xl:ml-4 text-2xl font-black max-lg:font-normal max-lg:text-lg max-lg:my-2" htmlFor="Date">
             {firstNews.publishedAt.slice(0, 10)}
           </label>
           <h1 className="text-6xl max-xl:text-xl max-xl:ml-4 max-lg:text-lg max-md:text-2xl">

@@ -8,7 +8,7 @@ import {
   twoDaysAgoDate,
 } from "../../utils";
 
-export const SearchBar = ({loading}) => {
+export const SearchBar = ({ loading }) => {
   const [input, setInput] = useState("");
   const [currentDate, setCurrentDate] = useState(todayCurrentDate);
   const [previousDate, setPreviousDate] = useState(twoDaysAgoDate);
@@ -17,7 +17,7 @@ export const SearchBar = ({loading}) => {
   const dispatch = useDispatch();
 
   const searchArticleNews = async (e) => {
-    loading =true
+    loading = true;
     e.preventDefault();
     try {
       const result = await axios.get(
@@ -38,7 +38,7 @@ export const SearchBar = ({loading}) => {
   return (
     <form
       onSubmit={searchArticleNews}
-      className={`w-full max-lg:flex-col  py-2 mb-8 bg-white border-2  flex justify-between`}
+      className={`w-full flex justify-between max-lg:flex-col py-2 mb-8 bg-white border-2 `}
     >
       <input
         className="pl-8 flex-1 max-lg:py-2  max-lg:border-2 outline-none max-sm:placeholder:text-xs"
@@ -47,9 +47,8 @@ export const SearchBar = ({loading}) => {
         placeholder="Enter the Article"
         required
       />
-      <div className="flex items-center mr-2 max-lg:flex-col max-md:w-full">
-
-        <label className="mx-2">From</label>
+      <div className="flex items-center max-lg:items-start mr-2 max-lg:flex-col max-md:w-full">
+        <label className="mx-2 max-lg:pl-2 max-lg:mt-2">Starting Date</label>
         <input
           className="border-2 rounded-lg py-2 px-1 max-lg:pl-8 max-lg:w-full"
           type="date"
@@ -58,7 +57,7 @@ export const SearchBar = ({loading}) => {
           max={todayCurrentDate}
         />
 
-        <label className="mx-2">To</label>
+        <label className="mx-2 max-lg:pl-2 max-lg:mt-2">Ending Date</label>
         <input
           className="border-2 rounded-lg py-2 px-1 max-lg:pl-8 max-lg:w-full"
           type="date"
@@ -69,15 +68,15 @@ export const SearchBar = ({loading}) => {
       </div>
 
       <select
-        className="bg-transparent border-2 max-md:w-full max-lg:pl-8 max-lg:mt-2 rounded-lg mr-2 outline-none px-2 max-lg:py-2"
+        className="bg-transparent border-2 max-md:w-full max-lg:pl-8 max-lg:my-4 rounded-lg mr-2 outline-none px-2 max-lg:py-2"
         onChange={(e) => setSortBy(e.target.value)}
-        defaultValue="publishedAt"
+        value={sortBy}
       >
-        <option value="publishedAt" disabled selected>
+        <option value="publishedAt" disabled>
           Sort Search
         </option>
         <option value="publishedAt">Recent First</option>
-        <option value="popularity">Papular First</option>
+        <option value="popularity">Popular First</option>
       </select>
       <button
         className="border-2 max-lg:mr-0 max-lg:mt-2 mr-8 px-4 py-1 rounded-lg max-sm:text-xs max-sm:px-2 max-sm:py-2"
