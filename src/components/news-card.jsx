@@ -24,9 +24,9 @@ export const NewsCard = ({ index, cardValue }) => {
   ) : (
     <Link to={cardValue.url} target="_blank">
       <div className="hover:bg-gray-100 hover:scale-105 transition-all duration-300 ease-in-out flex rounded-lg shadow mb-16 flex-col w-96 max-lg:w-80 max-md:w-full">
-        <div className=" h-60 max-md:h-96 max-sm:h-60">
+        <div className=" h-60 max-md:h-96 max-md:w-full max-sm:h-60">
           <img
-            className="w-full h-full object-cover rounded-t-lg"
+            className="w-full h-full object-fill rounded-t-lg"
             src={cardValue.urlToImage ? cardValue.urlToImage : dummy}
             alt="not found"
           />

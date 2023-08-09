@@ -19,11 +19,11 @@ export const HomeHeader = ({ firstNews, imageLoading }) => {
           />
         </div>
 
-        <div className="max-xl:py-6 home-header-child-2 border-2 rounded-r-lg max-xl:rounded-r-none max-xl:rounded-b-lg max-xl:rounded-br-lg flex flex-col justify-between">
-          <label className="text-gray-500 w-fit max-xl:ml-4 text-2xl font-black" htmlFor="Date">
+        <div className="w-1/2 max-xl:w-full max-xl:pl-0 max-md:mb-10 max-md:w-full pl-8  flex flex-col justify-between  border-2 rounded-r-lg max-xl:rounded-r-none max-xl:rounded-b-lg max-xl:rounded-br-lg">
+          <label className="text-gray-500 w-fit max-xl:ml-4 text-2xl font-black max-lg:font-normal max-lg:text-lg max-lg:my-2" htmlFor="Date">
             {firstNews.publishedAt.slice(0, 10)}
           </label>
-          <h1 className="text-6xl max-xl:text-xl max-xl:ml-4 max-lg:font-normal font-black max-lg:text-3xl max-md:text-2xl">
+          <h1 className="text-6xl max-xl:text-xl max-xl:ml-4 max-lg:text-lg max-md:text-2xl">
             {firstNews.title.slice(0, 50)}...
           </h1>
           <p className="max-xl:ml-4">{firstNews.description.slice(0, 150)}...</p>

@@ -8,7 +8,7 @@ import {
   twoDaysAgoDate,
 } from "../../utils";
 
-export const SearchBar = () => {
+export const SearchBar = ({loading}) => {
   const [input, setInput] = useState("");
   const [currentDate, setCurrentDate] = useState(todayCurrentDate);
   const [previousDate, setPreviousDate] = useState(twoDaysAgoDate);
@@ -17,6 +17,7 @@ export const SearchBar = () => {
   const dispatch = useDispatch();
 
   const searchArticleNews = async (e) => {
+    loading =true
     e.preventDefault();
     try {
       const result = await axios.get(
@@ -46,26 +47,29 @@ export const SearchBar = () => {
         placeholder="Enter the Article"
         required
       />
-      <div className="flex items-center mr-2 max-lg:flex-col">
-        <p className="mx-2">From</p>
+      <div className="flex items-center mr-2 max-lg:flex-col max-md:w-full">
+
+        <label className="mx-2">From</label>
         <input
-          className="border-2 rounded-lg py-2 px-1 max-lg:w-full"
+          className="border-2 rounded-lg py-2 px-1 max-lg:pl-8 max-lg:w-full"
           type="date"
           onChange={(e) => setPreviousDate(e.target.value)}
           min={sixMonthsAgoDate}
           max={todayCurrentDate}
         />
-        <p className="mx-2">To</p>
+
+        <label className="mx-2">To</label>
         <input
-          className="border-2 rounded-lg py-2 px-1 max-lg:w-full"
+          className="border-2 rounded-lg py-2 px-1 max-lg:pl-8 max-lg:w-full"
           type="date"
           onChange={(e) => setCurrentDate(e.target.value)}
           min={sixMonthsAgoDate}
           max={todayCurrentDate}
         />
       </div>
+
       <select
-        className="bg-transparent border-2 max-lg:mt-2 rounded-lg mr-2 outline-none px-2 max-lg:py-2"
+        className="bg-transparent border-2 max-md:w-full max-lg:pl-8 max-lg:mt-2 rounded-lg mr-2 outline-none px-2 max-lg:py-2"
         onChange={(e) => setSortBy(e.target.value)}
         defaultValue="publishedAt"
       >

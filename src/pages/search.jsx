@@ -16,16 +16,14 @@ export const Search = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(10);
-
   const lastPostIndex = currentPage * postPerPage;
   const firstPostIndex = lastPostIndex - postPerPage;
-
 
   const newsList = newsData.searchedNews ? newsData.searchedNews.articles : [];
   const currentPosts = newsList.slice(firstPostIndex, lastPostIndex);
   return (
     <div className="flex pb-8 flex-col items-center">
-      <SearchBar />
+      <SearchBar loading={newsData.loading}  />
       {newsData.loading ? (
         <div className="loader-line fixed top-0"></div>
       ) : newsData.searchedNews ? (

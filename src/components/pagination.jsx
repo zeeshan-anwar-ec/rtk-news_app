@@ -19,13 +19,12 @@ export const Pagination = ({
     pages.push(i);
   }
 
-
   return (
     <div className="flex items-center">
       <SkipPrevious
         className="hover:cursor-pointer"
         onClick={() => {
-          console.log("im clicked")
+          console.log("im clicked");
           setCurrentPage(currentPage > 2 ? currentPage - 2 : currentPage);
           window.scroll(0, 0);
         }}
@@ -40,28 +39,27 @@ export const Pagination = ({
 
       {pages.length > 5 && (
         <>
-        
-          <PButton
-            setCurrentPage={setCurrentPage}
-            val={1}
-          />
+          <PButton setCurrentPage={setCurrentPage} val={1} />
           <Dots />
-          <PButton buttonColor={"text-sky-400"} val={currentPage} setCurrentPage={setCurrentPage} />
-          <Dots />
+          {currentPage > 2 && (
+            <PButton val={currentPage - 1} setCurrentPage={setCurrentPage} />
+          )}
           <PButton
+            currentPage={true}
+            val={currentPage}
             setCurrentPage={setCurrentPage}
-            val={pages.length}
           />
+          {currentPage < pages.length - 1 && (
+            <PButton val={currentPage + 1} setCurrentPage={setCurrentPage} />
+          )}
+          <Dots />
+          <PButton setCurrentPage={setCurrentPage} val={pages.length} />
         </>
       )}
 
       {pages.length < 5 &&
         pages.map((page, index) => (
-          <PButton
-            setCurrentPage={setCurrentPage}
-            val={page + 1}
-            key={index}
-          />
+          <PButton setCurrentPage={setCurrentPage} val={page + 1} key={index} />
         ))}
 
       <NavigateNext
