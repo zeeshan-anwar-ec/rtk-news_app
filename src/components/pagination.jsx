@@ -39,8 +39,12 @@ export const Pagination = ({
 
       {pages.length > 5 && (
         <>
-          <PButton setCurrentPage={setCurrentPage} val={1} />
-          <Dots />
+          {currentPage > 1 && (
+            <>
+              <PButton setCurrentPage={setCurrentPage} val={1} />
+              <Dots />
+            </>
+          )}
           {currentPage > 2 && (
             <PButton val={currentPage - 1} setCurrentPage={setCurrentPage} />
           )}
@@ -52,8 +56,12 @@ export const Pagination = ({
           {currentPage < pages.length - 1 && (
             <PButton val={currentPage + 1} setCurrentPage={setCurrentPage} />
           )}
-          <Dots />
-          <PButton setCurrentPage={setCurrentPage} val={pages.length} />
+          {currentPage < pages.length && (
+            <>
+              <Dots />
+              <PButton setCurrentPage={setCurrentPage} val={pages.length} />
+            </>
+          )}
         </>
       )}
 

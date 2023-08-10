@@ -8,7 +8,7 @@ export const HomeHeader = ({ firstNews, imageLoading }) => {
   ) : (
     <Link to={firstNews.url} target="_blank">
       <div className="hover:bg-gray-100 hover:scale-105 
-      transition-all duration-100 ease-in-out w-full flex 
+      transition-all duration-300 ease-in-out w-full flex 
       mb-16 max-lg:mb-0 max-xl:w-96 max-xl:flex-col max-xl: max-md:w-full max-md:m-auto ">
 
         <div className="w-1/2 h-96 max-xl:h-60 max-xl:w-full max-md:w-full max-md:h-96 max-sm:h-60">

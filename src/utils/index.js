@@ -5,17 +5,36 @@ const month = String(todayDate.getMonth() + 1).padStart(2, "0");
 const day = String(todayDate.getDate()).padStart(2, "0");
 export const todayCurrentDate = `${year}-${month}-${day}`;
 
-// Two day before date
-const twoDaysAgo = new Date(todayDate);
-twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
-const oldYear = twoDaysAgo.getFullYear();
-const oldMonth = String(twoDaysAgo.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
-const oldDay = String(twoDaysAgo.getDate()).padStart(2, "0");
-export const twoDaysAgoDate = `${oldYear}-${oldMonth}-${oldDay}`;
+// weak Ago
+const weekAgo = new Date(todayDate);
+weekAgo.setDate(weekAgo.getDate() - 7);
+const oldYear = weekAgo.getFullYear();
+const oldMonth = String(weekAgo.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+const oldDay = String(weekAgo.getDate()).padStart(2, "0");
+export const weekAgoDate = `${oldYear}-${oldMonth}-${oldDay}`;
 
-
-// six month before date
+// month ago date
 const monthAgo = new Date(todayDate);
-monthAgo.setMonth(monthAgo.getMonth() - 6);
-const sixMonthsAgo = String(monthAgo.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
-export const sixMonthsAgoDate = `${year}-${sixMonthsAgo}-${day}`;
+monthAgo.setMonth(monthAgo.getMonth() - 1);
+const formateMonthAgo = String(monthAgo.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+export const monthAgoDate = `${year}-${formateMonthAgo}-${day}`;
+
+// year ago
+const yearAgo = new Date(todayDate);
+yearAgo.setMonth(yearAgo.getMonth() - 12);
+const yearMonthsAgo = String(monthAgo.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+export const yearMonthsAgoDate = `${year}-${yearMonthsAgo}-${day}`;
+
+
+export const validImage = async (url) => {
+    try {
+      const response = await fetch(url, {
+        headers: { "User-Agent": "Your User Agent Here" },
+      });
+      
+      return response.status === 200;
+    } catch (error) {
+      return false;
+    }
+  };
+  
