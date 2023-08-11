@@ -21,9 +21,9 @@ export const NavBar = () => {
     <>
       <header className={`w-full bg-slate-100 flex flex-wrap items-center max-md:flex-col`}>
         <div className="flex-1 flex justify-between items-center max-md:w-full max-md:justify-between">
-          <Link to={"/"} className="animate-bounce">
+          <Link to={"/"} >
             <img
-              className="ml-3 w-10 max-md:m-3"
+              className="ml-3 w-10 max-md:m-3 animate-bounce"
               src={logo}
               alt="not found"
             />
