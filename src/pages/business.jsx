@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { fetchBusinessNews } from "../redux/slice/newsSlice";
+import { fetchBusinessNews, fetchTechCrunhNews } from "../redux/slice/newsSlice";
 import { NewsCard } from "../components/news-card";
 import { Pagination } from "../components/pagination";
 import { useDispatch, useSelector } from "react-redux";

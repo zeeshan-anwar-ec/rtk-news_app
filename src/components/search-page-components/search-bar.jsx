@@ -20,10 +20,9 @@ export const SearchBar = ({ loading, searchedData, setSearchedData }) => {
 
   const dispatch = useDispatch();
 
-  const url = `https://newsapi.org/v2/${source}?q=${input}&from=${previousDate}&to=${currentDate}&sortBy=${sortBy}&apiKey=${apiKey}`;
+  const url = `https://newsapi.org/v2/${source}?q=${input}&language=en&from=${previousDate}&to=${currentDate}&sortBy=${sortBy}&apiKey=${apiKey}`;
 
   const searchArticleNews = async (e) => {
-    loading = true;
     e.preventDefault();
     try {
       const result = await axios.get(url);
@@ -49,8 +48,9 @@ export const SearchBar = ({ loading, searchedData, setSearchedData }) => {
       />
 
       <select
-        className="bg-white border-2 border-white text-gray-700 transition-all duration-300 ease-in-out max-md:w-full 
-        max-lg:px-2 max-lg:my-4 rounded-lg mr-2 max-lg:mr-0 outline-none px-2 max-lg:py-3 max-md:text-sm"
+        className="bg-white border-2 max-lg:mr-0 border-sky-400 text-gray-700 
+        transition-all duration-300 ease-in-out max-md:w-full max-lg:px-2 max-lg:my-4 rounded-lg mr-2 outline-none px-2 
+        max-lg:py-3 max-md:text-sm"
         onChange={(e) => setPreviousDate(e.target.value)}
       >
         <option value={weekAgoDate}>Week Ago</option>
@@ -59,7 +59,9 @@ export const SearchBar = ({ loading, searchedData, setSearchedData }) => {
       </select>
 
       <select
-        className="bg-white border-2 max-lg:mr-0 border-sky-400 text-gray-700 transition-all duration-300 ease-in-out max-md:w-full max-lg:px-2 max-lg:mb-4 rounded-lg mr-2 outline-none px-2 max-lg:py-3 max-md:text-sm"
+        className="bg-white border-2 max-lg:mr-0 border-sky-400 text-gray-700 
+        transition-all duration-300 ease-in-out max-md:w-full max-lg:px-2 max-lg:mb-4 rounded-lg mr-2 outline-none px-2 
+        max-lg:py-3 max-md:text-sm"
         onChange={(e) => setSortBy(e.target.value)}
       >
         <option value="publishedAt">Recent First</option>

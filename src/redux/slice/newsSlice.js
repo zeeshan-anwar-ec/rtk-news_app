@@ -2,10 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const apiKey = import.meta.env.VITE_NEWS_API_KEY;
-console.log("api key>>>",apiKey);
-const homePageUrl = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=${apiKey}`;
-const businessHeadLinesUrl = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}`;
-const techCrunchHeadLinesUrl = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${apiKey}`;
+const homePageUrl = `https://newsapi.org/v2/everything?domains=wsj.com&language=en&apiKey=${apiKey}`;
+const businessHeadLinesUrl = `https://newsapi.org/v2/top-headlines?country=us&language=en&category=business&apiKey=${apiKey}`;
+const techCrunchHeadLinesUrl = `https://newsapi.org/v2/top-headlines?sources=techcrunch&language=en&apiKey=${apiKey}`;
 
 // Initial State
 const initialState = {
@@ -52,6 +51,7 @@ const newsSlice = createSlice({
     // Pending
     builder.addCase(fetchNews.pending, (state, action) => {
       state.loading = true;
+      state.searchedNews = [];
     });
     // Fullfilled
     builder.addCase(fetchNews.fulfilled, (state, action) => {
@@ -70,6 +70,7 @@ const newsSlice = createSlice({
     // Pending
     builder.addCase(fetchBusinessNews.pending, (state, action) => {
       state.loading = true;
+      state.searchedNews = [];
     });
 
     // Fullfilled
@@ -89,6 +90,7 @@ const newsSlice = createSlice({
     // Pending
     builder.addCase(fetchTechCrunhNews.pending, (state, action) => {
       state.loading = true;
+      state.searchedNews = [];
     });
 
     // Fullfilled

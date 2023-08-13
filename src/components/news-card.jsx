@@ -29,8 +29,8 @@ export const NewsCard = ({ index, cardValue }) => {
             alt="not found"
           />
         </div>
-        <div className="mt-4 mb-8 px-4 h-36"  style={{wordWrap:"break-word"}}>
-          <label className="text-gray-700" htmlFor="Date">
+        <div className="mt-4 mb-8 px-4 h-30 flex flex-col"  style={{wordWrap:"break-word"}}>
+          <label className="text-gray-500" htmlFor="Date">
             {cardValue.publishedAt.slice(0, 10)}
           </label>
           <h1 className="text-xl font-bold max-lg:text-xl my-2">

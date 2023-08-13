@@ -14,7 +14,7 @@ const newsSelector = createSelector(
   (searchedNews, loading) => ({ searchedNews, loading })
 );
 
-export const Search = () => {
+export const  Search = () => {
   const newsData = useSelector(newsSelector);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,7 +35,7 @@ export const Search = () => {
         <div className="w-4/5 mt-8 flex flex-col items-center">
           <div className="w-full  flex flex-wrap justify-between just max-md:justify-center">
             {currentPosts.map((news, index) => (
-              <NewsCard key={index} index={index} cardValue={news} />
+              <NewsCard key={index} currentPage={currentPage} index={index} cardValue={news} />
             ))}
           </div>
           <Pagination
