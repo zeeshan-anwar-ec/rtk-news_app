@@ -1,6 +1,6 @@
 export const NewsCardSkeleton = () => {
   return (
-    <div className="flex my-6 flex-col w-96 max-lg:w-80 max-md:w-full animate-pulse">
+    <div className="flex my-6 flex-col w-96 max-lg:w-80 max-md:w-full animate-pulse transition-all duration-500 ease-in-out">
       <div className="rounded-lg bg-slate-300  h-60 max-md:h-96 max-sm:h-60"></div>
       <div className="mt-4">
         <label

@@ -8,23 +8,31 @@ export const PButton = ({ val, setCurrentPage, currentPage }) => {
   );
 
   const scrollToTop = () => {
-    const scrollDuration = 500; // Adjust this value as needed
-    const scrollStep = -window.scrollY / (scrollDuration / 15);
-    
+    const scrollDuration = 700;
+    const startScrollY = window.scrollY;
+    const targetScrollY = 0;
+    const easing = t => t * t;
+
     const scrollInterval = setInterval(() => {
-      if (window.scrollY !== 0) {
-        window.scrollBy(0, scrollStep);
+      const elapsed = Date.now() - startTimestamp;
+      if (elapsed < scrollDuration) {
+        const progress = easing(elapsed / scrollDuration);
+        const nextScrollY = startScrollY + (targetScrollY - startScrollY) * progress;
+        window.scrollTo(0, nextScrollY);
       } else {
         clearInterval(scrollInterval);
+        window.scrollTo(0, targetScrollY);
       }
     }, 15);
+
+    const startTimestamp = Date.now();
   };
 
   return (
     <button
       onClick={() => {
         setCurrentPage(val);
-        scrollToTop(); // Call the scroll function
+        scrollToTop();
       }}
       className={`hover:cursor-pointer py-1 px-3 mx-1 rounded-lg ${style}
         max-lg:text-sm max-lg:py-1 max-lg:px-2

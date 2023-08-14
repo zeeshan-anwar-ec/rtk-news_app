@@ -29,7 +29,7 @@ export const Business = () => {
     <div className="w-4/5  py-8 m-auto flex flex-col items-center">
       <div className="w-full flex flex-wrap justify-between max-md:w-full max-md:justify-center">
         {currentPosts.map((item, index) => (
-          <NewsCard key={index} index={index} cardValue={item} />
+          <NewsCard key={index} index={index} currentPage={currentPage} cardValue={item} />
         ))}
       </div>
       <Pagination
