@@ -21,7 +21,7 @@ export const NewsCard = ({ index, cardValue, currentPage }) => {
   ) : (
     <div>
       <Link to={cardValue.url} target="_blank">
-        <div className=" bg-gray-100 hover:scale-105  hover:border-2 hover:border-sky-400 transition-all duration-300 ease-in-out flex rounded shadow-lg overflow-hidden mb-16 flex-col w-96 max-lg:w-80 max-md:w-full">
+        <div className=" bg-gray-100 hover:scale-105 shadow  hover:border-2 hover:border-sky-400 transition-all duration-300 ease-in-out flex rounded overflow-hidden mb-16 flex-col w-96 max-lg:w-80 max-md:w-full">
           <div className={`h-60 max-md:h-96 max-md:w-full max-sm:h-60 ${imageLoading&& "bg-gray-700 animate-pulse rounded-lg ease-out"} transition-all`}>
             <img
               className={`w-full h-full object-cover rounded-t ${imageLoading? "opacity-0":"opacity-1 ease-in duration-1000"}  transition-all`}
@@ -31,7 +31,7 @@ export const NewsCard = ({ index, cardValue, currentPage }) => {
         
           </div>
           <div
-            className="mt-4 mb-8 px-4 h-36 flex flex-col justify-center"
+            className="mt-4 mb-8 px-4 max-md:px-2 max-sm:px-1 h-30 flex flex-col justify-center"
             style={{ wordWrap: "break-word" }}
           >
             <div>
