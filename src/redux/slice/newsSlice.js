@@ -30,7 +30,6 @@ export const fetchBusinessNews = createAsyncThunk(
   }
 );
 
-console.log("hello")
 
 // Action for tech-crunch page
 export const fetchTechCrunhNews = createAsyncThunk(
