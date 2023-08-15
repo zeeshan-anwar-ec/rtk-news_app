@@ -5,12 +5,7 @@ const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 const homePageUrl = `https://newsapi.org/v2/everything?domains=wsj.com&language=en&apiKey=${apiKey}`;
 const businessHeadLinesUrl = `https://newsapi.org/v2/top-headlines?country=us&language=en&category=business&apiKey=${apiKey}`;
 const techCrunchHeadLinesUrl = `https://newsapi.org/v2/top-headlines?sources=techcrunch&language=en&apiKey=${apiKey}`;
-const origin = "http://localhost:5173";
-const axiosConfig = {
-  headers: {
-    Origin: origin,
-  },
-};
+
 // Initial State
 const initialState = {
   news: [],
