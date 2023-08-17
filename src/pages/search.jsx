@@ -24,13 +24,16 @@ export const  Search = () => {
 
   const [searchedData ,setSearchedData] = useState(false)
 
+  console.log("envocked with: ", searchedData);
+
   const newsList = newsData.searchedNews ? newsData.searchedNews.articles : [];
   const currentPosts = newsList.slice(firstPostIndex, lastPostIndex);
   return (
     <div className="flex pb-8 flex-col items-center">
       <SearchBar loading={newsData.loading} searchedData={searchedData} setSearchedData={setSearchedData} />
-      {newsData.loading ? (
-        <div className="loader-line fixed top-0"></div>
+      {searchedData?
+      newsData.loading ? (
+        <div className="loader-line fixed top-0"></div>  //loader
       ) : newsData.searchedNews ? (
         <div className="w-4/5 mt-8 flex flex-col items-center">
           <div className="w-full  flex flex-wrap justify-between just max-md:justify-center">
@@ -48,15 +51,24 @@ export const  Search = () => {
       ) : (
         <div className="w-4/5 h-96 flex flex-col items-center">
           <h1 className="text-2xl max-md:text-base text-gray-600 font-bold">
-          {searchedData? `No news found please search others news` : "Search somthing...."}
+          {currentPosts.length>1? `No news found please search others news` : "Search somthing...."}
           </h1>
           <img
             className="w-2/5 max-md:w-4/5 object-cover"
-            src={searchedData? noResult : searchPic}
+            src={currentPosts.length>1? noResult : searchPic}
             alt=""
           />
         </div>
-      )}
+      ):<div className="w-4/5 h-96 flex flex-col items-center">
+      <h1 className="text-2xl max-md:text-base text-gray-600 font-bold">
+      {currentPosts.length>1? `No news found please search others news` : "Search somthing...."}
+      </h1>
+      <img
+        className="w-2/5 max-md:w-4/5 object-cover"
+        src={currentPosts.length>1? noResult : searchPic}
+        alt=""
+      />
+    </div>}
     </div>
   );
 };

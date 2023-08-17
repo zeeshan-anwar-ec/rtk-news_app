@@ -27,8 +27,8 @@ export const SearchBar = ({ loading, searchedData, setSearchedData }) => {
     try {
       const result = await axios.get(url);
       result.data.articles.length > 1
-        ? dispatch(searchArticles(url))
-        : setSearchedData(!searchedData);
+        ? (dispatch(searchArticles(url)),setSearchedData(true))
+        : setSearchedData(false);
     } catch (error) {
       console.log(error);
     }
